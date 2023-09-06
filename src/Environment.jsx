@@ -1,16 +1,17 @@
 import { Grid } from "@react-three/drei";
-import { RigidBody } from "@react-three/rapier";
+import { usePlane } from "@react-three/cannon";
 
+function CannonFloor(){
 
-function Floor(){
+    const [ref] = usePlane(
+        () => ({rotation: [-Math.PI * 0.5, 0, 0]})
+    )
+
     return (
-        <RigidBody type="fixed">
-            <mesh receiveShadow position={[0, -3.5, 0]}>
-                <boxGeometry args={[300, 5, 300]} />
-                <meshStandardMaterial color="lightblue" />
-            </mesh>
-        </RigidBody>
-        
+        <mesh ref={ref}>
+            <planeGeometry args={[300, 300]} />
+            <meshStandardMaterial color="lightblue" />
+        </mesh>
     )
 }
 
@@ -18,10 +19,10 @@ export default function Environment(){
     return <>
         <Grid 
             args={[300, 300]}
-            sectionColor={"lightgray"}
+            sectionColor={"gray"}
             cellColor={"gray"}
-            position={[0, -0.99, 0]}
+            position={[0, 0.005, 0]}
         />
-        <Floor />
+        <CannonFloor />
     </>
 }

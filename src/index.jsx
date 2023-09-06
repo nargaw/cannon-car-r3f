@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience'
 import { OrbitControls } from '@react-three/drei'
-import { Physics } from '@react-three/rapier'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 console.log(root)
@@ -13,11 +12,9 @@ root.render(
             <OrbitControls 
                 maxDistance={30}
                 minDistance={5}
-                maxPolarAngle={Math.PI * 0.5}
+                maxPolarAngle={Math.PI * 0.45}
             />
-            <Physics debug>
-                <Experience  />
-            </Physics> 
+            <Experience />
         </Canvas>
     </>
 )
