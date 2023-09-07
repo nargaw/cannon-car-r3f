@@ -8,10 +8,10 @@ export default function Experience()
 {
     return <>
         <Physics>
-            {/* <Debug color="black" scale={1.1}> */}
+            <Debug color="black" scale={1.1}>
                 <TestObj />
-                <Environment />        
-            {/* </Debug> */}
+                {/* <Environment />         */}
+            </Debug>
         </Physics>
         <Lights />
         
